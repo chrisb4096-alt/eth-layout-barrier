@@ -1,0 +1,1181 @@
+{
+  "generated_central": "2026-10-31T14:35:55.476760-05:00",
+  "label": "checked (exact)",
+  "layouts": [
+    {
+      "label": "checked (exact)",
+      "name": "C4, saturating determinant",
+      "n": 4,
+      "Q": 4,
+      "r": 8,
+      "R": 1,
+      "D": 1,
+      "tau": "1/4",
+      "balanced_cut_expansion": "1",
+      "maximum_incidence": 2,
+      "denominator": 24,
+      "maximum_scaled_coefficient": 24,
+      "measurement_rows": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "P": {
+        "0,0": [
+          "1 - T",
+          "0",
+          "0",
+          "0"
+        ],
+        "0,1": [
+          "0",
+          "1 - T",
+          "0",
+          "0"
+        ],
+        "1,1": [
+          "0",
+          "1 - T",
+          "0",
+          "0"
+        ],
+        "1,2": [
+          "0",
+          "0",
+          "1 - T",
+          "0"
+        ],
+        "2,2": [
+          "0",
+          "0",
+          "1 - T",
+          "0"
+        ],
+        "2,3": [
+          "0",
+          "0",
+          "0",
+          "1 - T"
+        ],
+        "3,3": [
+          "0",
+          "0",
+          "0",
+          "1 - T"
+        ],
+        "3,0": [
+          "1 - T",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      "partitions": [
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      "factor_schedules": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ]
+      ],
+      "measurements": [
+        [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      "equality_certificate": {
+        "label": "checked (exact)",
+        "L": 4,
+        "selected": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "m": 2,
+        "determinant": "T**2 - 2*T + 1",
+        "point_rank_deficits": [
+          2,
+          0,
+          0,
+          0
+        ],
+        "deltas": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "c_t": [
+          0,
+          2,
+          2,
+          2
+        ],
+        "lhs": 6,
+        "rhs": 6,
+        "equality": true
+      },
+      "sign_scan": {
+        "label": "checked (exact)",
+        "L": 2,
+        "exhaustive_sign_grids": 65536,
+        "nonempty_grids": 18225,
+        "largest_m": 2,
+        "best_determinant": {
+          "label": "checked (exact)",
+          "L": 2,
+          "selected": [
+            [
+              3,
+              0
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "m": 2,
+          "determinant": "T**2 - 2*T + 1",
+          "point_rank_deficits": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "deltas": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "c_t": [
+            0,
+            2,
+            2,
+            2
+          ],
+          "lhs": 2,
+          "rhs": 6,
+          "equality": false
+        }
+      }
+    },
+    {
+      "label": "checked (exact)",
+      "name": "K4, rotating measurement spaces",
+      "n": 4,
+      "Q": 4,
+      "r": 8,
+      "R": 1,
+      "D": 1,
+      "tau": "3/8",
+      "balanced_cut_expansion": "2",
+      "maximum_incidence": 3,
+      "denominator": 24,
+      "maximum_scaled_coefficient": 24,
+      "measurement_rows": [
+        0,
+        3,
+        3,
+        3
+      ],
+      "P": {
+        "0,0": [
+          "1 - T",
+          "0",
+          "0",
+          "0"
+        ],
+        "0,1": [
+          "0",
+          "1 - T",
+          "0",
+          "0"
+        ],
+        "1,0": [
+          "1 - T",
+          "0",
+          "0",
+          "0"
+        ],
+        "1,2": [
+          "0",
+          "0",
+          "1 - T",
+          "0"
+        ],
+        "2,0": [
+          "1 - T",
+          "0",
+          "0",
+          "0"
+        ],
+        "2,3": [
+          "0",
+          "0",
+          "0",
+          "1 - T"
+        ],
+        "3,1": [
+          "0",
+          "1 - T",
+          "0",
+          "0"
+        ],
+        "3,2": [
+          "0",
+          "0",
+          "1 - T",
+          "0"
+        ],
+        "4,1": [
+          "0",
+          "1 - T",
+          "0",
+          "0"
+        ],
+        "4,3": [
+          "0",
+          "0",
+          "0",
+          "1 - T"
+        ],
+        "5,2": [
+          "0",
+          "0",
+          "1 - T",
+          "0"
+        ],
+        "5,3": [
+          "0",
+          "0",
+          "0",
+          "1 - T"
+        ]
+      },
+      "partitions": [
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      "factor_schedules": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          2,
+          2
+        ]
+      ],
+      "measurements": [
+        [
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [
+            [
+              1
+            ]
+          ],
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [],
+          [
+            [
+              1
+            ]
+          ],
+          [
+            [
+              1
+            ]
+          ],
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        [
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [
+            [
+              1
+            ]
+          ],
+          [
+            [
+              1
+            ]
+          ],
+          [],
+          [],
+          [],
+          []
+        ]
+      ],
+      "sign_scan": {
+        "label": "checked (exact)",
+        "L": 2,
+        "exhaustive_sign_grids": 65536,
+        "nonempty_grids": 20454,
+        "largest_m": 3,
+        "best_determinant": {
+          "label": "checked (exact)",
+          "L": 2,
+          "selected": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "m": 3,
+          "determinant": "-T**3 + 3*T**2 - 3*T + 1",
+          "point_rank_deficits": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "deltas": [
+            3,
+            2,
+            3,
+            2
+          ],
+          "c_t": [
+            0,
+            3,
+            3,
+            3
+          ],
+          "lhs": 3,
+          "rhs": 9,
+          "equality": false
+        }
+      }
+    },
+    {
+      "label": "checked (exact)",
+      "name": "C4, embedded Q=2 swap construction",
+      "n": 4,
+      "Q": 2,
+      "r": 2,
+      "R": 1,
+      "D": 1,
+      "tau": "1/4",
+      "balanced_cut_expansion": "1",
+      "maximum_incidence": 2,
+      "denominator": 2,
+      "maximum_scaled_coefficient": 2,
+      "measurement_rows": [
+        2,
+        2
+      ],
+      "P": {
+        "0,0": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "0,2": [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "1,2": [
+          "0",
+          "0",
+          "1 - T",
+          "0"
+        ],
+        "1,1": [
+          "0",
+          "1 - T/2",
+          "0",
+          "0"
+        ],
+        "2,1": [
+          "0",
+          "1 - T",
+          "0",
+          "0"
+        ],
+        "2,3": [
+          "0",
+          "0",
+          "0",
+          "1 - T/2"
+        ],
+        "3,3": [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "3,0": [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      "partitions": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "factor_schedules": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "measurements": [
+        [
+          [
+            [
+              1,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              1,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              0
+            ]
+          ]
+        ]
+      ],
+      "sign_scan": {
+        "label": "checked (exact)",
+        "L": 2,
+        "exhaustive_sign_grids": 16,
+        "nonempty_grids": 2,
+        "largest_m": 1,
+        "best_determinant": {
+          "label": "checked (exact)",
+          "L": 2,
+          "selected": [
+            [
+              3,
+              0
+            ]
+          ],
+          "m": 1,
+          "determinant": "1",
+          "point_rank_deficits": [
+            0,
+            0
+          ],
+          "deltas": [
+            1,
+            1
+          ],
+          "c_t": [
+            2,
+            2
+          ],
+          "lhs": 1,
+          "rhs": 4,
+          "equality": false
+        }
+      }
+    }
+  ],
+  "fixed_schedule_feasibility": [
+    {
+      "label": "checked (exact)",
+      "degree": 1,
+      "feasible": false,
+      "ranks": [
+        {
+          "f": 0,
+          "v": 0,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 0,
+          "v": 1,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 1,
+          "v": 1,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 1,
+          "v": 2,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 2,
+          "v": 2,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 2,
+          "v": 3,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 3,
+          "v": 3,
+          "rank": 4,
+          "augmented": 5
+        },
+        {
+          "f": 3,
+          "v": 0,
+          "rank": 4,
+          "augmented": 5
+        }
+      ]
+    },
+    {
+      "label": "checked (exact)",
+      "degree": 2,
+      "feasible": true,
+      "ranks": [
+        {
+          "f": 0,
+          "v": 0,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 0,
+          "v": 1,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 1,
+          "v": 1,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 1,
+          "v": 2,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 2,
+          "v": 2,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 2,
+          "v": 3,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 3,
+          "v": 3,
+          "rank": 8,
+          "augmented": 8
+        },
+        {
+          "f": 3,
+          "v": 0,
+          "rank": 8,
+          "augmented": 8
+        }
+      ]
+    }
+  ],
+  "probability_checks": [
+    {
+      "Q": 1,
+      "distance": 0,
+      "L": 1,
+      "probability": "0"
+    },
+    {
+      "Q": 1,
+      "distance": 1,
+      "L": 1,
+      "probability": "1/4"
+    },
+    {
+      "Q": 2,
+      "distance": 0,
+      "L": 1,
+      "probability": "0"
+    },
+    {
+      "Q": 2,
+      "distance": 0,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 2,
+      "distance": 1,
+      "L": 1,
+      "probability": "0"
+    },
+    {
+      "Q": 2,
+      "distance": 1,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 2,
+      "distance": 2,
+      "L": 1,
+      "probability": "1/16"
+    },
+    {
+      "Q": 2,
+      "distance": 2,
+      "L": 2,
+      "probability": "1/16"
+    },
+    {
+      "Q": 3,
+      "distance": 0,
+      "L": 1,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 0,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 0,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 1,
+      "L": 1,
+      "probability": "1/8"
+    },
+    {
+      "Q": 3,
+      "distance": 1,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 1,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 2,
+      "L": 1,
+      "probability": "3/16"
+    },
+    {
+      "Q": 3,
+      "distance": 2,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 2,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 3,
+      "distance": 3,
+      "L": 1,
+      "probability": "1/4"
+    },
+    {
+      "Q": 3,
+      "distance": 3,
+      "L": 2,
+      "probability": "1/64"
+    },
+    {
+      "Q": 3,
+      "distance": 3,
+      "L": 3,
+      "probability": "1/64"
+    },
+    {
+      "Q": 4,
+      "distance": 0,
+      "L": 1,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 0,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 0,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 0,
+      "L": 4,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 1,
+      "L": 1,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 1,
+      "L": 2,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 1,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 1,
+      "L": 4,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 2,
+      "L": 1,
+      "probability": "1/32"
+    },
+    {
+      "Q": 4,
+      "distance": 2,
+      "L": 2,
+      "probability": "1/32"
+    },
+    {
+      "Q": 4,
+      "distance": 2,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 2,
+      "L": 4,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 3,
+      "L": 1,
+      "probability": "1/16"
+    },
+    {
+      "Q": 4,
+      "distance": 3,
+      "L": 2,
+      "probability": "1/16"
+    },
+    {
+      "Q": 4,
+      "distance": 3,
+      "L": 3,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 3,
+      "L": 4,
+      "probability": "0"
+    },
+    {
+      "Q": 4,
+      "distance": 4,
+      "L": 1,
+      "probability": "25/256"
+    },
+    {
+      "Q": 4,
+      "distance": 4,
+      "L": 2,
+      "probability": "25/256"
+    },
+    {
+      "Q": 4,
+      "distance": 4,
+      "L": 3,
+      "probability": "1/256"
+    },
+    {
+      "Q": 4,
+      "distance": 4,
+      "L": 4,
+      "probability": "1/256"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newcommand{\F}{\mathbb F}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\dist}{\operatorname{dist}}
+\title{Lower bounds for time-dependent layout measurements}
+\author{Chris Blaschke\\Ax0s}
+\date{October 31, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove lower bounds on the accounting exponent of OpenAI's layout interface for bounded-incidence, balanced-cut expanding scopes. The proof couples arbitrary time-dependent measurement spaces through a determinant. Under a capacity condition the charged exponent is at least a constant times $(\log\log n)^{3/2}/\sqrt{\log n}$. We also prove a small-measurement bound in auxiliary coordinates and a separate partner-time inequality. These are not general algorithmic running-time lower bounds.
+\end{abstract}
+\section{Introduction}
+OpenAI~\cite{openai} and Claude (Anthropic)~\cite{anthropic} independently refute the exponential time hypothesis, with counting algorithms of running time $2^{n/(\log n)^{1/2+o(1)}}$ and $2^{O(n\log\log n/\sqrt{\log n})}$ respectively. We ask whether the square-root logarithm is forced by the accounting for OpenAI's layout interface, rather than by the problem itself.
+
+Tulsyan~\cite{tulsyan} proves degree barriers for the fixed-$M_0$ template, in which $M_0$ has the prescribed Hamming support and fixes the kernel of a common measurement matrix. On the full label space, his first bound yields $R\ge(1-o(1))\sqrt{Q\ln(1/\varepsilon)}$ in the even-alphabet moderate-deviation regime; his second is capacity-free and uses the Arora--Rao--Vazirani theorem~\cite{arv}. He asks how to couple corrections that vary with time. Olivier~\cite{olivier} independently proves a degree lower bound for each fixed matrix satisfying OpenAI's equation (4.4). Neither fixed-$M_0$ result settles general time-dependent layouts.
+
+Our determinant inequality couples all evaluation points without identifying their correction spaces. On expanding scopes, it yields lower bounds on the layout accounting exponent, and on the full auxiliary label space it gives a small-measurement degree bound. A separate interpolation argument proves a partner-time inequality and an exact result for a paired binary family. Neither argument establishes a capacity-free barrier for general layouts.
+
+\section{The layout interface}
+Let $[n]$ be the variables and $I_f\subseteq[n]$ the scope of each factor $f$. OpenAI's layout has integers $r\ge2$, $D\ge1$, $1\le R<Q$ and $0<\tau\le1/2$. For each $t\in[Q]$ it specifies a partition $[n]=\bigsqcup_{g=1}^r S_{t,g}$, empty parts permitted, with $|S_{t,g}|\le2n/r$. Write $a_v(t)=g$ when $v\in S_{t,g}$, and write $d_f(t)$ for the assigned group of factor $f$.
+
+For each $(t,g)$ there is an integer matrix $C_{t,g}$ on columns $S_{t,g}$, with $c_{t,g}$ rows, each of $\ell_1$ norm at most $D$, and $\sum_g c_{t,g}\le2\tau n$. For each incidence $v\in I_f$ there is a row $P_{f,v}(T)\in\mathbb Q[T]^{1\times n}$ of degree at most $R$ with $P_{f,v}(0)=e_v$. For every $g\ne d_f(t)$ and $\xi\in\ker C_{t,g}$, the row $P_{f,v}(t)$ annihilates the extension of $\xi$ by zero. Equivalently, its restriction to $S_{t,g}$ belongs to the row space of $C_{t,g}$. Finally, with $d_{\rm den}=(R-1)!Q!$, each coefficient of $d_{\rm den}P_{f,v}$ is an integer of $O(Q\log Q+\log D)$ bits, with an absolute constant. Our lower bounds do not use this coefficient condition.
+
+For total product degree $d=O(n)$, the counting analysis of \cite{openai} gives the following upper-bound proxy for the normalized exponential cost, apart from polynomial factors:
+\begin{equation}\label{eq:F}
+ F=\frac RQ\log_2\frac{2Q}{R}+\tau\log_2(2D+1)+\frac1r.
+\end{equation}
+A lower bound on $F$ limits this particular accounting; it is not a lower bound on the running time of every algorithm, or even on an alternative implementation of the counting step.
+
+\section{A determinant inequality}
+The following result uses only the pointwise row-space condition, not expansion or integrality. It holds over any field $\F$ of characteristic zero, with distinct nonzero evaluation points $t$; signs are ordinary real signs applied to schedules.
+\begin{theorem}\label{thm:det}
+Choose signs $\epsilon_{t,g}\in\{-1,1\}$ and put $s(w)=\sum_t\epsilon_{t,w(t)}$. Suppose $m$ distinct variables $v_i$ have incident factors $f_i$ with $s(a_{v_i})\le-L$ and $s(d_{f_i})\ge L$. If $c_t=\sum_g c_{t,g}$, then
+\[m(L-R)\le\sum_{t=1}^Q c_t.\]
+The factors may repeat and the measurement spaces may vary arbitrarily with $t$.
+\end{theorem}
+\begin{proof}
+Let $A(T)_{ij}=P_{f_i,v_i}(T)_{v_j}$. Then $A(0)=I_m$, so $\det A$ is nonzero and has degree at most $mR$. At $t$, let $u_{t,g}$ and $v_{t,g}$ count the selected rows assigned to $g$ and selected columns in $g$. Form $M_t$ by retaining entries of $A(t)$ only where row and column groups differ. In each column group its rows lie in the restricted row space of $C_{t,g}$, so $\rank M_t\le c_t$. The remainder has matching-group blocks, hence
+\[\rank A(t)\le c_t+\sum_g\min(u_{t,g},v_{t,g})=m+c_t-\Delta_t,\quad \Delta_t=\tfrac12\sum_g|u_{t,g}-v_{t,g}|.\]
+If a polynomial matrix has rank $\rho$ at $t$, constant invertible row operations make $m-\rho$ rows vanish there; factoring $T-t$ from each proves that $(T-t)^{m-\rho}$ divides its determinant. This elementary multiplicity fact is also a consequence of Smith form~\cite{matrixpoly}. Summing over distinct points,
+\[mR\ge\sum_t(m-\rank A(t))\ge\sum_t\Delta_t-\sum_t c_t.\]
+Finally $2mL\le\sum_{t,g}\epsilon_{t,g}(u_{t,g}-v_{t,g})\le2\sum_t\Delta_t$. Combining the inequalities proves the claim.
+\end{proof}
+
+\section{Expanding scopes}
+Assume each variable occurs in at most $b$ scopes and every $W\subseteq[n]$ with $n/4\le |W|\le n/2$ is crossed by at least $h|W|$ factors, where a crossing factor meets both $W$ and its complement. Here $b$ and $h>0$ are fixed; these are additional hypotheses, not part of the layout definition. Set $\alpha=h/(8b)$.
+\begin{lemma}\label{lem:prob}
+For $Q\ge(512/\alpha)^2$, $0\le L\le\alpha Q/64$, and two schedules at Hamming distance at least $\alpha Q$, independent uniform signs $\epsilon_{t,g}$ satisfy
+\[\Pr[s(a)\le-L,\ s(d)\ge L]\ge c_\alpha\exp[-C_\alpha(L^2/Q+1)]\]
+for positive constants depending only on $\alpha$.
+\end{lemma}
+\begin{proof}
+Let $\ell\ge\alpha Q$ be the distance. At the $\ell$ mismatched times the two signs $\epsilon_{t,a(t)}$ and $\epsilon_{t,d(t)}$ are independent; let $k$ count those where they disagree. Then $k\sim\mathrm{Bin}(\ell,1/2)$ and Paley--Zygmund gives $\Pr(k\ge\ell/4)\ge1/8$. Conditional on these positions, $s(a)=C-Z$ and $s(d)=C+Z$, where $C$ and $Z$ are independent sums of $Q-k$ and $k$ fair signs. Chebyshev gives $\Pr(|C|\le2\sqrt Q)\ge3/4$. Put $u=L+2\sqrt Q$ and $w=u+2\sqrt k$. If $w\le k/4$, exponential tilting with $k\tanh\lambda=w$ and Chebyshev under the tilted law yield
+\[\Pr(Z\ge u)\ge\tfrac34\exp\{-3w(u+4\sqrt k)/k\}.\]
+Indeed $\lambda\le3w/k$, and the tilted probability of $|Z-w|<2\sqrt k$ is at least $3/4$; undo the tilt using $(\cosh\lambda)^k\ge1$. The interval argument needs no parity adjustment. On $k\ge\alpha Q/4$, the stated range gives $w\le L+4\sqrt Q\le\alpha Q/64+\alpha Q/128<\alpha Q/16\le k/4$. On the event $|C|\le2\sqrt Q$ and $Z\ge u$ we have $s(d)=C+Z\ge L$ and $s(a)=C-Z\le-L$. The exponent is $O_\alpha(L^2/Q+1)$, and multiplying the three probability bounds proves the lemma.
+\end{proof}
+\begin{theorem}\label{thm:expand}
+Under the above expansion hypotheses, every layout satisfies, for a constant $c>0$ depending only on $b,h$,
+\[F\ge \frac c{\sqrt Q},\qquad F\ge c\frac{\log_2(2Q)}{\sqrt Q}.\]
+If also $Q\log_2 r\le K\log_2 n$ for a fixed $K$, then for sufficiently large $n$,
+\[F\ge c_{b,h,K}\frac{(\log_2\log_2 n)^{3/2}}{\sqrt{\log_2 n}}.\]
+\end{theorem}
+\begin{proof}
+For $r\ge8$, partition parts can be greedily united to give $n/4\le|W|\le n/2$. Each crossing factor has an incidence whose factor and variable groups differ, so there are at least $hn/4$ such incidences at each time. There are at most $bn$ incidences, hence at least $hn/8$ have schedule distance at least $\alpha Q$. Lemma~\ref{lem:prob}, expectation, and selection of one incidence per variable give signs and $m\ge cn\exp(-CL^2/Q)$ selected variables. Theorem~\ref{thm:det} and $c_t\le2\tau n$ imply, whenever $L>R$ is in the lemma's range,
+\begin{equation}\label{eq:threshold}
+ \tau\ge c\frac{L-R}{Q}\exp(-CL^2/Q).
+\end{equation}
+For $R\le\sqrt Q$, take $L=R+\lceil\sqrt Q\rceil$; for the lemma's lower bound on $Q$, this is admissible and gives $\tau\ge c/\sqrt Q$, hence $F\ge\tau\log_2 3\ge c/\sqrt Q$ since $D\ge1$. For $R>\sqrt Q$, the first term of \eqref{eq:F} is at least $R/Q>1/\sqrt Q$. Bounded $Q$ and $r<8$ are handled by reducing $c$, using respectively $R/Q\ge1/Q$ and $1/r>1/8$.
+
+For the stronger bound, integer measurement rows have support at most $D$. At each time the union of their supports has size at most $2\tau nD$. An off-assigned incidence $(f,v)$ outside this union forces $P_{f,v}(t)_v=0$; its diagonal polynomial is nonzero at zero and has at most $R$ roots. Summing over at most $bn$ incidences gives
+\begin{equation}\label{eq:support}
+ R/Q+2\tau D\ge h/(4b).
+\end{equation}
+If $R>\sqrt Q$, concavity of $x\log_2(2/x)$ on $[Q^{-1/2},1]$ gives the claimed bound. Otherwise, for large $Q$, \eqref{eq:support} gives $D\ge h/(16b\tau)$ and the preceding argument gives $\tau\ge c_0/\sqrt Q$. The function $\tau\log_2(1+z/\tau)$ is increasing for $z>0$, so the measurement term is $\Omega(\log(2Q)/\sqrt Q)$. Again bounded $Q$ and $r<8$ are absorbed into the constant.
+
+For the capacity conclusion put $N=\log_2 n$. If $r\le N^{1/4}$, then $1/r\ge N^{-1/4}$ dominates the claimed bound. Otherwise $Q\le4KN/\log_2 N$. The function $\log_2(2Q)/\sqrt Q$ decreases for sufficiently large $Q$; evaluation at that upper endpoint proves the result, while bounded $Q$ gives a constant.
+\end{proof}
+
+\section{Auxiliary coordinates}
+Let $B$ be a nonempty finite label set. For each $u\in B$ let $a_u,d_u\in[r]^Q$, and let $P_u(T)\in\mathbb Q[T]^B$ have degree at most $R$ and $P_u(0)=e_u$. At time $t$ let $\Lambda_t\subseteq\mathbb Q^B$ have dimension at most $\varepsilon|B|$, and suppose $P_u(t)-\lambda_{u,t}$ is supported on $\{w:a_w(t)=d_u(t)\}$ for some $\lambda_{u,t}\in\Lambda_t$. Corrections may depend on both $u$ and $t$.
+\begin{theorem}\label{thm:aux}
+Fix $\alpha,\beta,K>0$. If at least $\beta|B|$ labels satisfy $\dist(a_u,d_u)\ge\alpha Q$ and $0<\varepsilon\le K/Q$, then, for sufficiently large $Q$,
+\[R\ge c\min\{Q,\sqrt{Q\ln(1/\varepsilon)}\},\]
+where $c>0$ depends only on $\alpha,\beta,K$. In particular this holds on the full label space $B=([r]\times[r])^Q$ for $r\ge2$, with constants independent of $r$.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:prob} selects $m\ge c|B|e^{-CL^2/Q}$ long labels. The determinant proof applies with the whole correction matrix of rank at most $\varepsilon|B|$ at each time, yielding
+\[\varepsilon\ge c(L-R)Q^{-1}e^{-CL^2/Q}.\]
+If $R<\sqrt Q$, taking $L=R+\lceil\sqrt Q\rceil$ contradicts $\varepsilon\le K/Q$ for large $Q$. If $2R>\alpha Q/64$, the linear branch of the conclusion holds. Otherwise take $L=2R$: the inequality gives $\varepsilon\ge(c/\sqrt Q)e^{-4CR^2/Q}$. As $\ln(1/\varepsilon)\ge\ln Q-\ln K$, rearrangement gives $R^2\ge cQ\ln(1/\varepsilon)$ for large $Q$. On the full space the mean distance is $(1-1/r)Q\ge Q/2$, so at least one third of labels have distance at least $Q/4$.
+\end{proof}
+The long-pair assumption cannot be dropped: even with balanced schedules, take $B=[r]^Q$, $a_u=d_u=u$, $P_u=e_u$, $R=1$, and one-dimensional correction spaces (or zero corrections). Then $\varepsilon=1/|B|$ is allowed and no such degree bound follows. In OpenAI's incidence embedding, $\tau=rb\varepsilon$ is a sufficient physical budget, not necessarily the smallest possible budget; the auxiliary theorem itself incurs no $\ln(rb)$ loss.
+
+\section{Partner times}
+Let $A(T)$ be an $m\times m$ polynomial matrix of degree at most $R$ with $A(0)=I$. All evaluation times are distinct and nonzero. At time $t$, rows and columns have group labels $d_i(t),a_j(t)$. Let $N_t=\{(i,j):d_i(t)=a_j(t)\}$ be the unmeasured entries, and let $I_t=\{i:d_i(t)\ne a_i(t)\}$. Let $\mathrm{cost}_t$ be the sum, over column groups, of the ranks of the measured (off-$N_t$) column blocks. This is at most the number of layout measurement rows when $A$ is a selected incidence matrix.
+\begin{proposition}\label{prop:partner}
+For each $t$ in a set $\mathcal T$, suppose there is a set $P(t)$ of $R$ distinct nonzero times, excluding $t$, at which every entry of $N_t$ is measured. For $t'\in P(t)$ let $\beta(t,t')$ be the maximum, over column groups $g'$ at $t'$, of the number of labels $h$ for which some column has $a_j(t)=h$ and $a_j(t')=g'$. Put
+\[\lambda=\max_{t'}\sum_{t\in\mathcal T:t'\in P(t)}\beta(t,t').\]
+Then, with cost summed over all evaluation times,
+\[(1+\lambda)\sum_t\mathrm{cost}_t\ge\sum_{t\in\mathcal T}|I_t|-mR.\]
+\end{proposition}
+\begin{proof}
+Let $G_t(T)$ retain the entries of $A(T)$ in $N_t$ with row index in $I_t$, and zero all other entries. These entries are off-diagonal, so $G_t(0)=0$ and $\deg G_t\le R$. At $t$, the measured part has rank at most $\mathrm{cost}_t$, while the unmeasured part in rows outside $I_t$ has rank at most $m-|I_t|$. Thus the corank of $A(t)$ is at least $|I_t|-\mathrm{cost}_t-\rank G_t(t)$.
+
+At a partner $t'$, within each column group $g'$, $G_t(t')$ splits into at most $\beta(t,t')$ rectangles, indexed by $h$, with rows $i\in I_t$, $d_i(t)=h$, and columns $a_j(t)=h$, $a_j(t')=g'$. Each is a row-and-column restriction of the measured block at $t'$. Hence $\rank G_t(t')\le\beta(t,t')\mathrm{cost}_{t'}$. Lagrange interpolation through $0$ and $P(t)$ gives $\rank G_t(t)\le\sum_{t'\in P(t)}\beta(t,t')\mathrm{cost}_{t'}$. Summing the corank inequalities and using the determinant multiplicity bound $\sum_t\mathrm{corank}\,A(t)\le mR$ gives the result.
+\end{proof}
+\begin{corollary}\label{cor:coset}
+Let indices be $x\in\mathbb F_2^k$, $m=2^k$. For each of $\Delta$ nonzero directions $y_\ell$, take one antisymmetric time with $a_x=\langle x,y_\ell\rangle$, $d_x=1-a_x$, and $R$ symmetric times with $d_x=a_x$ using the same direction. Then every such $A$ has total cost at least $m(\Delta-R)$; for $R\le\Delta$ this is attained.
+\end{corollary}
+\begin{proof}
+At an antisymmetric time the measured part is block diagonal and the unmeasured part is block antidiagonal. Write $G_y$ for the block-antidiagonal projection. The determinant bound gives $\sum_{t\,\mathrm{anti}}\mathrm{cost}_t\ge m(\Delta-R)-\sum_{t\,\mathrm{anti}}\rank G_{y_t}(A(t))$. Each $G_y(A(T))$ vanishes at zero; interpolation through its $R$ symmetric partners bounds its rank at the antisymmetric time by the sum of their measured-block ranks. The partner sets are disjoint, giving the bound. For $R\le\Delta$, choose a scalar polynomial $p$ of degree $R$, with $p(0)=1$ and roots at any $R$ antisymmetric times, and take $A(T)=p(T)I$: its total cost is exactly $m(\Delta-R)$. At symmetric times the unmeasured part is block diagonal and contains the identity. Consequently the determinant rank estimate of Theorem~\ref{thm:det} alone charges nothing there; interpolation brings those times into the argument.
+\end{proof}
+In the family of Corollary~\ref{cor:coset}, a row $x$ and a column $x'$ differ at the antisymmetric time of direction $y_\ell$ when $\langle x,y_\ell\rangle=\langle x',y_\ell\rangle$ and at its $R$ symmetric times otherwise, so $\dist(d_x,a_{x'})\ge\Delta$ for every pair. The corollary therefore proves the following statement, with $c=1$, on that family.
+\begin{conjecture}[Far-pair matrix bound]\label{conj:far}
+There is an absolute $c>0$ such that, for arbitrary row and column schedules with $\dist(d_i,a_j)\ge\Delta>R$ for all $i\le j$, every degree-$R$ matrix $A$ with $A(0)=I$ has total measured-block rank at least $c m(\Delta-R)$.
+\end{conjecture}
+In Tulsyan's second theorem, ARV~\cite{arv} separates two large sets of variable schedules, and linkedness supplies many incidence labels with all selected row--column pairs far apart. The all-pairs special case of this conjecture would suffice to extend that route to time-dependent measurements; the triangular formulation is stronger than that application requires. Our local searches on small instances (up to $m=12$, $Q=12$, $R\le3$; not included here), with every construction checked in exact arithmetic, found none below $m(\Delta-R)$. This is weak evidence at small sizes. Generic expanding layouts with many groups need not have partner sets, so Proposition~\ref{prop:partner} does not establish the conjecture or a capacity-free layout bound.
+
+\section{Limitations and verification}
+It remains open whether, on the linked bounded-incidence scope systems used in Tulsyan's second theorem, sufficiently small time-dependent measurement budgets force $R=\Omega(Q/\sqrt{\log n})$ without a capacity assumption. A simple equal-marginal example has row schedules $00,11$ and column schedules $01,10$: every coordinate imbalance is zero although all cross-pairs are separated. It shows why the additive determinant charge does not directly capture the nonlinear separation used in the fixed-correction argument.
+
+Even with the capacity condition, our bound is smaller by a factor $\sqrt{\log\log n}$ than the order obtained in \cite{openai}, namely $(\log\log n)^2/\sqrt{\log n}$. This cannot be closed by optimizing \eqref{eq:threshold} and combining it only with \eqref{eq:support}. Put $N=\log_2n$ and take
+\[Q=\lfloor N/\log_2N\rfloor,\quad R=1,\quad r=\lceil\sqrt Q\rceil,\quad \tau=\kappa_1/\sqrt Q,\quad D=\lceil \kappa_2\sqrt Q\rceil,\]
+with sufficiently large constants $\kappa_1,\kappa_2$. These formal parameters satisfy the displayed necessary inequalities and $Q\log_2r=(1/2+o(1))N$, while $F=\Theta(\log Q/\sqrt Q)$. They do not construct a layout: additional polynomial and incidence constraints may exclude them. The capacity condition itself is not part of the layout definition.
+
+The repository's exact certificate checker verifies finite layouts and determinant certificates, including equality on a four-cycle and genuinely varying measurement spaces on the four-vertex complete graph. It checks a fixed-schedule feasibility claim and small sign-mixture probabilities; the latter do not establish the asymptotic probability constants. The partner checker verifies a projection identity and the corresponding block-rank identity exactly. These finite calculations do not replace the general proofs.
+
+\section*{Acknowledgment}
+This work was carried out with AI research assistants. The proofs were cross-checked by an independent AI reviewer and the finite claims by exact computation.
+\begin{thebibliography}{9}
+\bibitem{openai} OpenAI. \emph{The Exponential Time Hypothesis is False}. October 17, 2026; revised October 25, 2026. \href{https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026}{Preprint and code}.
+\bibitem{anthropic} Claude (Anthropic). \emph{A $2^{o(n)}$ Time Algorithm for 3-SAT}. October 26, 2026. \href{https://github.com/anthropics/formal-math/tree/main/eth}{Preprint and code}.
+\bibitem{tulsyan} Vaibhav Tulsyan. \emph{The parity barrier in OpenAI's Engine I}. October 29, 2026. \href{https://github.com/xennygrimmato/eth-hamiltonicity/blob/a4f924c1419cbc43564c3792925d8bb182ca932c/research/permanent/parity-barrier.md}{Research note}.
+\bibitem{olivier} Antoine Olivier. \emph{openai-eth-section4-lower-bound.md}. October 28, 2026. \href{https://gist.github.com/antoine-olivier/d269b3b449d3a2cdb021dc0ee5d0fc82}{Research note}.
+\bibitem{matrixpoly} Israel Gohberg, Peter Lancaster, and Leiba Rodman. \emph{Matrix Polynomials}. Academic Press, 1982.
+\bibitem{arv} Sanjeev Arora, Satish Rao, and Umesh Vazirani. Expander flows, geometric embeddings and graph partitioning. \emph{Journal of the ACM} 56(2), 2009.
+\end{thebibliography}
+\end{document}
