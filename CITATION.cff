@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Lower bounds for time-dependent layout measurements"
+authors:
+  - family-names: Blaschke
+    given-names: Chris
+    affiliation: Ax0s
+date-released: 2026-10-31
+version: "1.0"
+license: CC-BY-4.0
+repository-code: "https://github.com/chrisb4096-alt/eth-layout-barrier"
+url: "https://github.com/chrisb4096-alt/eth-layout-barrier"
+keywords:
+  - exponential time hypothesis
+  - lower bounds
+  - computational complexity
