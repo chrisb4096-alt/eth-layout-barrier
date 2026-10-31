@@ -1,5 +1,7 @@
 # Lower bounds for time-dependent layout measurements
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23845341.svg)](https://doi.org/10.5281/zenodo.23845341)
+
 Chris Blaschke (Ax0s), October 31, 2026. [Read the paper (PDF).](paper/layout-barrier.pdf)
 
 This paper proves lower bounds for the accounting exponent in the layout interface of OpenAI's *The Exponential Time Hypothesis is False*. The bounds apply to bounded-incidence, balanced-cut expanding scopes and allow the measurement spaces to change at every evaluation point.
@@ -62,7 +64,8 @@ tectonic -X compile layout-barrier.tex
   year = {2026},
   month = {October},
   note = {Ax0s. First posted October 31, 2026},
-  url = {https://github.com/chrisb4096-alt/eth-layout-barrier}
+  doi = {10.5281/zenodo.23845341},
+  url = {https://doi.org/10.5281/zenodo.23845341}
 }
 ```
 
