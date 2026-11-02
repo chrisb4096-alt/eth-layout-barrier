@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23845341.svg)](https://doi.org/10.5281/zenodo.23845341)
 
-Chris Blaschke (Ax0s), October 31, 2026. [Read the paper (PDF).](paper/layout-barrier.pdf)
+Chris Blaschke (Ax0s), October 31, 2026; revised November 2, 2026. [Read the paper (PDF).](paper/layout-barrier.pdf)
 
 This paper proves lower bounds for the accounting exponent in the layout interface of OpenAI's *The Exponential Time Hypothesis is False*. The bounds apply to bounded-incidence, balanced-cut expanding scopes and allow the measurement spaces to change at every evaluation point.
 
@@ -14,6 +14,7 @@ The earlier bounds of [Tulsyan](https://github.com/xennygrimmato/eth-hamiltonici
 - the bounds below on expanding scopes (Theorem 3);
 - in Tulsyan's auxiliary coordinates, on the full label space and for every time-dependent correction, $R\ge c\min\{Q,\sqrt{Q\ln(1/\varepsilon)}\}$ when $\varepsilon\le K/Q$ (Theorem 4);
 - a second argument through interpolation at "partner" times, which is tight on a family of binary coset instances whose full-set row and column group counts have zero imbalance (Proposition 5, Corollary 6).
+- partner times can't be dropped: the far-pair matrix bound conjectured in version 1.0 is false. Clifford-algebra polynomial matrices on the "paired cube" make the measured rank $(q+1)4^{-q}\,m(\Delta-R)$ for every $q\ge3$, even over $\mathbb Q$ (Theorem 7). This refutes the abstract matrix statement only, not a layout bound.
 
 ## Main bound
 
@@ -44,9 +45,10 @@ From the repository root, with `uv` installed:
 ```sh
 uv run --with sympy python verify/check_timedep.py
 uv run --with sympy python verify/partner_identity.py
+uv run --with sympy python verify/far_pair.py
 ```
 
-The first command checks finite layout, determinant and probability certificates and writes `verify/certificates.json`. The second checks a projection identity and block-rank identity. These checks do not prove the general theorems.
+The first command checks finite layout, determinant and probability certificates and writes `verify/certificates.json`. The second checks a projection identity and block-rank identity. The third checks the far-pair counterexample's families and Clifford matrices in exact arithmetic. These checks do not prove the general theorems.
 
 To compile the paper with Tectonic:
 
