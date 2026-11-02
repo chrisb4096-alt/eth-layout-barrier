@@ -14,7 +14,7 @@ The earlier bounds of [Tulsyan](https://github.com/xennygrimmato/eth-hamiltonici
 - the bounds below on expanding scopes (Theorem 3);
 - in Tulsyan's auxiliary coordinates, on the full label space and for every time-dependent correction, $R\ge c\min\{Q,\sqrt{Q\ln(1/\varepsilon)}\}$ when $\varepsilon\le K/Q$ (Theorem 4);
 - a second argument through interpolation at "partner" times, which is tight on a family of binary coset instances whose full-set row and column group counts have zero imbalance (Proposition 5, Corollary 6).
-- partner times can't be dropped: the far-pair matrix bound conjectured in version 1.0 is false. Clifford-algebra polynomial matrices on the "paired cube" make the measured rank $(q+1)4^{-q}\,m(\Delta-R)$ for every $q\ge3$, even over $\mathbb Q$ (Theorem 7). This refutes the abstract matrix statement only, not a layout bound.
+- a proof that partner times can't be dropped. The far-pair matrix bound conjectured in version 1.0 is false. Clifford-algebra polynomial matrices on the "paired cube" make the measured rank $(q+1)4^{-q}\,m(\Delta-R)$ for every $q\ge3$, even over $\mathbb Q$ (Theorem 7). This refutes the abstract matrix statement only, not a layout bound.
 
 ## Main bound
 
