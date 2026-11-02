@@ -14,7 +14,9 @@ The earlier bounds of [Tulsyan](https://github.com/xennygrimmato/eth-hamiltonici
 - the bounds below on expanding scopes (Theorem 3);
 - in Tulsyan's auxiliary coordinates, on the full label space and for every time-dependent correction, $R\ge c\min\{Q,\sqrt{Q\ln(1/\varepsilon)}\}$ when $\varepsilon\le K/Q$ (Theorem 4);
 - a second argument through interpolation at "partner" times, which is tight on a family of binary coset instances whose full-set row and column group counts have zero imbalance (Proposition 5, Corollary 6).
-- a proof that partner times can't be dropped. The far-pair matrix bound conjectured in version 1.0 is false. Clifford-algebra polynomial matrices on the "paired cube" make the measured rank $(q+1)4^{-q}\,m(\Delta-R)$ for every $q\ge3$, even over $\mathbb Q$ (Theorem 7). This refutes the abstract matrix statement only, not a layout bound.
+- a proof that partner times can't be dropped when the degree $R$ is close to the separation $\Delta$. The far-pair matrix bound conjectured in version 1.0 is false. Clifford-algebra polynomial matrices on the "paired cube" make the measured rank $(q+1)4^{-q}\,m(\Delta-R)$ for every $q\ge3$, even over $\mathbb Q$ (Theorem 7). This refutes the abstract matrix statement only, not a layout bound, and it needs $\Delta/R\to1$.
+
+The slack case stays open: if all pairs are at distance $\Delta\ge CR$ for a fixed $C>1$, is the measured rank at least a constant times $m\Delta$? Theorem 7's construction class saves only a constant factor there. A yes answer would give the capacity-free bound $F=\Omega(1/\sqrt{\log n})$ on linked scopes (Section 8).
 
 ## Main bound
 
@@ -36,7 +38,7 @@ $$
 F\ge c_{b,h,K}\frac{(\log_2\log_2 n)^{3/2}}{\sqrt{\log_2 n}}.
 $$
 
-The expansion, bounded-incidence and capacity assumptions are not part of the layout definition. The result bounds the upper-bound accounting expression $F$ used in OpenAI's analysis for total product degree $O(n)$, not the actual running time of every algorithm. It does not prove the capacity-free bound or match the paper's full logarithmic order.
+The expansion, bounded-incidence and capacity assumptions are not part of the layout definition. The result bounds the upper-bound accounting expression $F$ used in OpenAI's analysis for total product degree $O(n)$, not the actual running time of every algorithm. It does not prove the capacity-free bound or match the paper's full logarithmic order. Section 8 states a matrix bound, the slack far-pair bound, that would give the capacity-free bound.
 
 ## Verify
 
