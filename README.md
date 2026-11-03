@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23845341.svg)](https://doi.org/10.5281/zenodo.23845341)
 
-Chris Blaschke (Ax0s), October 31, 2026; revised November 2, 2026. [Read the paper (PDF).](paper/layout-barrier.pdf)
+Chris Blaschke (Ax0s), October 31, 2026; revised November 3, 2026. [Read the paper (PDF).](paper/layout-barrier.pdf)
 
 This paper proves lower bounds for the accounting exponent in the layout interface of OpenAI's *The Exponential Time Hypothesis is False*. The bounds apply to bounded-incidence, balanced-cut expanding scopes and allow the measurement spaces to change at every evaluation point.
 
@@ -16,7 +16,7 @@ The earlier bounds of [Tulsyan](https://github.com/xennygrimmato/eth-hamiltonici
 - a second argument through interpolation at "partner" times, which is tight on a family of binary coset instances whose full-set row and column group counts have zero imbalance (Proposition 5, Corollary 6).
 - a proof that partner times can't be dropped when the degree $R$ is close to the separation $\Delta$. The far-pair matrix bound conjectured in version 1.0 is false. Clifford-algebra polynomial matrices on the "paired cube" make the measured rank $(q+1)4^{-q}\,m(\Delta-R)$ for every $q\ge3$, even over $\mathbb Q$ (Theorem 7). This refutes the abstract matrix statement only, not a layout bound, and it needs $\Delta/R\to1$.
 
-The slack case stays open: if all pairs are at distance $\Delta\ge CR$ for a fixed $C>1$, is the measured rank at least a constant times $m\Delta$? Theorem 7's construction class saves only a constant factor there. A yes answer would give the capacity-free bound $F=\Omega(1/\sqrt{\log n})$ on linked scopes (Section 8).
+The slack case stays open: if all pairs are at distance $\Delta\ge CR$ for a fixed $C>1$, is the measured rank at least a constant times $m\Delta$? Theorem 7's construction class saves only a constant factor there. A yes answer would give the capacity-free bound $F=\Omega(1/\sqrt{\log n})$ on linked scopes (Section 8). On the paired cube, version 1.3 proves the bound when the off-diagonal entries have bounded degree $d$: the measured rank is at least $m(\Delta-R)/(d\,2^{d-1})$, so at least $m\Delta/8$ for quadratic and $m\Delta/24$ for cubic off-diagonal parts at $\Delta\ge2R$ (Proposition 10). The loss is exponential in $d$, and Theorem 7's matrices have off-diagonal degree close to $R$, so the general slack case is still open.
 
 ## Main bound
 
@@ -48,9 +48,10 @@ From the repository root, with `uv` installed:
 uv run --with sympy python verify/check_timedep.py
 uv run --with sympy python verify/partner_identity.py
 uv run --with sympy python verify/far_pair.py
+uv run --with sympy python verify/slack_cube.py
 ```
 
-The first command checks finite layout, determinant and probability certificates and writes `verify/certificates.json`. The second checks a projection identity and block-rank identity. The third checks the far-pair counterexample's families and Clifford matrices in exact arithmetic. These checks do not prove the general theorems.
+The first command checks finite layout, determinant and probability certificates and writes `verify/certificates.json`. The second checks a projection identity and block-rank identity. The third checks the far-pair counterexample's families and Clifford matrices in exact arithmetic. The fourth checks the interpolation identity behind Proposition 10 exactly. These checks do not prove the general theorems.
 
 To compile the paper with Tectonic:
 
