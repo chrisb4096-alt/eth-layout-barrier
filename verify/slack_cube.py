@@ -28,4 +28,4 @@ for d,R in ((1,3),(2,3),(3,4)):
                 for h,e in zip(H,eps): M=P(h,e,M)
                 rhs+=al[l]/ti*L*M
         ok &= rhs==P(l,-1,A(al[l]))
-print("ok" if ok else "FAIL")
+print("ok" if ok else "FAIL"); raise SystemExit(0 if ok else 1)
